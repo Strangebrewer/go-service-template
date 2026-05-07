@@ -16,6 +16,7 @@ import (
 	"github.com/Strangebrewer/go-service-template/example"
 	"github.com/Strangebrewer/go-service-template/middleware"
 	"github.com/Strangebrewer/go-service-template/server"
+	"github.com/Strangebrewer/go-service-template/tracer"
 )
 
 func main() {
@@ -37,8 +38,14 @@ func main() {
 		os.Exit(1)
 	}
 
+	var tracerClient *tracer.Client
+	if cfg.TracerURL != "" && cfg.TracerServiceKey != "" {
+		tracerClient = tracer.NewClient(cfg.TracerURL, cfg.TracerServiceKey, "go-service-template")
+	}
+
 	application := &app.Application{
 		ExampleStore: example.NewStore(pool),
+		Tracer:       tracerClient,
 	}
 
 	port := cfg.Port

@@ -12,5 +12,5 @@ import (
 func registerRoutes(r chi.Router, application *app.Application, authMiddleware func(http.Handler) http.Handler) {
 	r.Get("/health", health.Handler)
 
-	r.With(authMiddleware).Mount("/examples", example.Routes(application.ExampleStore))
+	r.With(authMiddleware).Mount("/examples", example.Routes(application.ExampleStore, application.Tracer))
 }

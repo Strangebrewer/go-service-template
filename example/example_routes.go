@@ -1,11 +1,12 @@
 package example
 
 import (
+	"github.com/Strangebrewer/go-service-template/tracer"
 	"github.com/go-chi/chi/v5"
 )
 
-func Routes(store *Store) chi.Router {
-	h := NewHandler(store)
+func Routes(store *Store, tc *tracer.Client) chi.Router {
+	h := NewHandler(store, tc)
 	r := chi.NewRouter()
 
 	r.Get("/", h.GetAll)
