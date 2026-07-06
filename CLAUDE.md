@@ -5,6 +5,7 @@
 A GitHub template repository for Go REST services in the personal-enterprise project. It provides the full structural skeleton — chi router, JWT auth middleware, structured logging, Postgres connection, sqlc setup, golang-migrate, testcontainers integration tests, Dockerfile, and CI — so new services can be created without rebuilding boilerplate from scratch.
 
 When a concrete service is created from this template, the first things to change are:
+
 1. The module name in `go.mod` (e.g. `github.com/Strangebrewer/go-auth`) and all import paths throughout the codebase
 2. The `example/` package — replace with real domain packages
 3. `app/app.go` — replace `ExampleStore` with real stores
@@ -99,11 +100,11 @@ Integration tests use testcontainers to spin up a real Postgres container. `Test
 
 ## Environment Variables
 
-| Variable | Description |
-|---|---|
-| `PORT` | HTTP port (defaults to 8080) |
-| `DATABASE_URL` | Postgres connection string (`postgres://user:pass@host/db`) |
-| `JWT_PUBLIC_KEY` | RSA public key PEM for validating JWTs issued by go-auth |
-| `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins |
+| Variable          | Description                                                 |
+| ----------------- | ----------------------------------------------------------- |
+| `PORT`            | HTTP port (defaults to 8080)                                |
+| `DATABASE_URL`    | Postgres connection string (`postgres://user:pass@host/db`) |
+| `JWT_PUBLIC_KEY`  | RSA public key PEM for validating JWTs issued by go-auth    |
+| `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins                |
 
 Copy `.env.example` to `.env.local` for local dev. Never commit `.env.local`.

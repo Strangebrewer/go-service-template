@@ -105,9 +105,9 @@ Unit tests are written for pure logic with no database dependency — calculatio
 
 ## Environment Variables
 
-| Variable | Description |
-|---|---|
-| `PORT` | HTTP port (defaults to 8080) |
-| `DATABASE_URL` | Postgres connection string |
-| `JWT_PUBLIC_KEY` | RSA public key PEM for validating JWTs |
+| Variable          | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `PORT`            | HTTP port (defaults to 8080)                 |
+| `DATABASE_URL`    | Postgres connection string                   |
+| `JWT_PUBLIC_KEY`  | RSA public key PEM for validating JWTs       |
 | `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins |
